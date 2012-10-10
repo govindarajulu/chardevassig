@@ -1,4 +1,0 @@
-chardevassig
-============
-
-char device assignment
