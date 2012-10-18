@@ -1,8 +1,15 @@
-#include <stdio.h>
+#include <linux/module.h>
+#include <linux/kernel.h>
 
-int main(void)
-{
-    printf("Hello World!\n");
+static __init int modinit(void){
+    printk("inserting module\n");
     return 0;
 }
 
+
+static __exit void modexit(void){
+    printk("removing module\n");
+}
+
+module_init(modinit);
+module_exit(modexit);
