@@ -1,7 +1,9 @@
 #include <linux/module.h>
 #include <linux/kernel.h>
-#include <linux/fs.h>
 #include <linux/kdev_t.h>
+#include <linux/io.h>
+#include <linux/fs.h>
+
 #define MAJORR 59
 #define COUNT 2
 dev_t chrdev;
