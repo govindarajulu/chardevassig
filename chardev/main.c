@@ -47,6 +47,7 @@ goto_unregister_chrdev_region:
 static __exit void modexit(void){
     printk("removing module\n");
     printk("unregistering chrdev:%s-MAJOR=%d,COUNT=%d\n",chrdev_name,MAJOR(chrdev),COUNT);
+    cdev_del(mycdev);
     unregister_chrdev_region(chrdev,COUNT);
 }
 
