@@ -4,6 +4,10 @@
 #include <linux/io.h>
 #include <linux/fs.h>
 #include "chrdev.h"
+extern dev_t chrdev;
+extern dev_t chrdev;
+extern struct cdev *mycdev;
+extern struct file_operations fop;
 static __init int modinit(void){
     int err;
     chrdev=MKDEV(MAJORR,0);

@@ -5,6 +5,7 @@
 #include <linux/fs.h>
 #include "chrdev.h"
 dev_t chrdev;
+struct cdev *mycdev;
 struct file_operations fop= {
     .owner = THIS_MODULE
 
