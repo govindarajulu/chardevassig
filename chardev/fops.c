@@ -5,6 +5,6 @@
 #include <linux/fs.h>
 #include "chrdev.h"
 
-int myopen(struct inode *myinode, struct file *myfile) {
+int fops_myopen(struct inode *myinode, struct file *myfile) {
     return 0;
 }

@@ -7,6 +7,7 @@
 dev_t chrdev;
 struct cdev *mycdev;
 struct file_operations fop= {
-    .owner = THIS_MODULE
+    .owner = THIS_MODULE,
+    .open  = fops_myopen
 
 };
