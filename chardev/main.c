@@ -3,7 +3,7 @@
 #include <linux/kdev_t.h>
 #include <linux/io.h>
 #include <linux/fs.h>
-#define MAJORR 1
+#define MAJORR 59
 #define COUNT 2
 #define chrdev_name "mychrdev"
 dev_t chrdev;
@@ -33,7 +33,6 @@ try_alloc_chrdev_region:
 goto_error:
     return err;
 }
-
 
 static __exit void modexit(void){
     printk("removing module\n");
