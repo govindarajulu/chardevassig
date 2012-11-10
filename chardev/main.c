@@ -4,14 +4,6 @@
 #include <linux/io.h>
 #include <linux/fs.h>
 #include "chrdev.h"
-#define MAJORR 59
-#define COUNT 2
-#define chrdev_name "mychrdev"
-dev_t chrdev;
-struct file_operations fop= {
-    .owner = THIS_MODULE
-
-};
 static __init int modinit(void){
     int err;
     chrdev=MKDEV(MAJORR,0);
