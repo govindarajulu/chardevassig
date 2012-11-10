@@ -27,9 +27,11 @@ static __init int modinit(void){
 try_alloc_chrdev_region:
     err=alloc_chrdev_region(&chrdev,0,COUNT,chrdev_name);
     if(err<0)
-        return err;
+        goto goto_error;
     printk("registed chrdev:%s-MAJOR=%d,COUNT=%d\n",chrdev_name,MAJOR(chrdev),COUNT);
     return 0;
+goto_error:
+    return err;
 }
 
 
