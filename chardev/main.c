@@ -3,6 +3,7 @@
 #include <linux/kdev_t.h>
 #include <linux/io.h>
 #include <linux/fs.h>
+#include "chrdev.h"
 #define MAJORR 59
 #define COUNT 2
 #define chrdev_name "mychrdev"
