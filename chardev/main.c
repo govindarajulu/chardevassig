@@ -16,15 +16,32 @@ static __init int modinit(void){
         goto try_alloc_chrdev_region;
     }
     printk("registration successfull\n");
-    return 0;
+    goto goto_cdev_init;
+
 try_alloc_chrdev_region:
     err=alloc_chrdev_region(&chrdev,0,COUNT,chrdev_name);
     if(err<0)
         goto goto_error;
     printk("registed chrdev:%s-MAJOR=%d,COUNT=%d\n",chrdev_name,MAJOR(chrdev),COUNT);
-    return 0;
+    goto goto_cdev_init;
 goto_error:
-    return err;
+    return -1;
+goto_cdev_init:
+    mycdev=cdev_alloc();
+    mycdev->ops=&fop;
+    mycdev->owner=THIS_MODULE;
+    err=cdev_add(mycdev,chrdev,COUNT);
+    if(err<0) {
+        printk("error in cdev_add\n");
+        goto goto_unregister_chrdev_region;
+    }
+    printk("cdev_add successfull\n");
+    goto goto_success;
+goto_success:
+    return 0;
+goto_unregister_chrdev_region:
+    unregister_chrdev_region(chrdev,COUNT);
+    goto goto_error;
 }
 
 static __exit void modexit(void){
