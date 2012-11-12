@@ -10,6 +10,7 @@ struct file_operations fop= {
     .owner = THIS_MODULE,
     .open  = fops_open,
     .release = fops_release,
-    .read = fops_read
+    .read = fops_read,
+    .write = fops_write
 
 };
