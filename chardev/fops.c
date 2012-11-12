@@ -27,6 +27,7 @@ ssize_t fops_write(struct file* filep, char __user *buf, size_t count, loff_t *f
     copy_from_user(buffer,buf,count);
     printk("read- %s\n",buffer);
     *f_pos=*f_pos+count;
+    kfree(buffer);
     return count;
 }
 
