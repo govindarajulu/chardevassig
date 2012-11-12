@@ -25,7 +25,11 @@ ssize_t fops_write(struct file* filep, char __user *buf, size_t count, loff_t *f
     char *buffer;
     buffer=kmalloc(count,GFP_KERNEL);
     copy_from_user(buffer,buf,count);
+<<<<<<< HEAD
     printk("read- %s\n",buffer);
+=======
+    printf("read- %s\n",buffer);
+>>>>>>> 20827d059a26fa83c1ac25003da927df3f1983fa
     *f_pos=*f_pos+count;
     return count;
 }
