@@ -23,8 +23,9 @@ ssize_t fops_read(struct file* filep, char __user *buf, size_t count, loff_t *f_
 
 ssize_t fops_write(struct file* filep, char __user *buf, size_t count, loff_t *f_pos){
     char *buffer;
-    buffer=kmalloc(count,GFP_KERNEL);
+    buffer=kmalloc(count+1,GFP_KERNEL);
     copy_from_user(buffer,buf,count);
+    buffer[count]='\0';
     printk("read- %s\n",buffer);
     *f_pos=*f_pos+count;
     kfree(buffer);
