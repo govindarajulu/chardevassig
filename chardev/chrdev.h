@@ -8,7 +8,7 @@
 #define COUNT 2
 #define chrdev_name "mychrdev"
 #define IO_PRINT1 1
-#define IO_PRINT_STRING 2
+#define IO_PRINT_STRING 6
 
 struct ioctl_cmd2 {
     ssize_t len;
