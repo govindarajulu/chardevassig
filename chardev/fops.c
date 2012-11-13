@@ -32,3 +32,6 @@ ssize_t fops_write(struct file* filep, char __user *buf, size_t count, loff_t *f
     return count;
 }
 
+int fops_ioctl (struct inode *myinode, struct file *filep, unsigned int mycmd, unsigned long myarg){
+    return -ENOTTY;
+}
