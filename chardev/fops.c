@@ -33,5 +33,22 @@ ssize_t fops_mywrite(struct file* filep, char __user *buf, size_t count, loff_t 
 }
 
 int fops_myioctl (struct inode *myinode, struct file *filep, unsigned int mycmd, unsigned long myarg){
-    return -ENOTTY;
+    struct ioctl_cmd2 cmd2;
+    char* string;
+    switch(mycmd){
+    case IO_PRINT1:
+        printk("cmd 1 received\n");
+        break;
+    case IO_PRINT_STRING:
+        copy_from_user(&cmd2,(struct ioctl_cmd2*)myarg,sizeof(struct ioctl_cmd2));
+        string=kmalloc(cmd2.len,GFP_KERNEL);
+        copy_from_user(string,cmd2.string);
+        printk("cmd2:%s",string);
+        kfree(string);
+        break;
+    default:
+        return ENOTTY;
+    }
+
+    return 0;
 }
