@@ -36,10 +36,10 @@ int fops_myioctl (struct inode *myinode, struct file *filep, unsigned int mycmd,
     struct ioctl_cmd2 cmd2;
     char* string;
     switch(mycmd){
-    case IO_PRINT1:
+    case MY_IOC_PRINT1:
         printk("cmd 1 received\n");
         break;
-    case IO_PRINT_STRING:
+    case MY_IOC_PRINT_STRING:
         printk("in cmd2");
         copy_from_user(&cmd2,(struct ioctl_cmd2*)myarg,sizeof(struct ioctl_cmd2));
         string=kmalloc(cmd2.len,GFP_KERNEL);
