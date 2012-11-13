@@ -11,6 +11,6 @@ struct file_operations fop= {
     .open  = fops_myopen,
     .release = fops_myrelease,
     .read = fops_myread,
-    .write = fops_mywrite
+    .write = fops_mywrite,
     .ioctl = fops_myioctl
 };
