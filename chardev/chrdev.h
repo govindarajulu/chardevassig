@@ -15,10 +15,10 @@ struct ioctl_cmd2 {
     char * string;
 }__attribute__((__packed__));
 
-int fops_open(struct inode *myinode, struct file *myfile);
-int fops_release(struct inode *myinode, struct file *myfile);
-ssize_t fops_read(struct file* filep, char __user *buf, size_t count, loff_t *f_pos);
-ssize_t fops_write(struct file* filep, char __user *buf, size_t count, loff_t *f_pos);
-int fops_ioctl (struct inode *myinode, struct file *filep, unsigned int mycmd, unsigned long myarg);
+int fops_myopen(struct inode *myinode, struct file *myfile);
+int fops_myrelease(struct inode *myinode, struct file *myfile);
+ssize_t fops_myread(struct file* filep, char __user *buf, size_t count, loff_t *f_pos);
+ssize_t fops_mywrite(struct file* filep, char __user *buf, size_t count, loff_t *f_pos);
+int fops_myioctl (struct inode *myinode, struct file *filep, unsigned int mycmd, unsigned long myarg);
 
 #endif // CHRDEV_H
