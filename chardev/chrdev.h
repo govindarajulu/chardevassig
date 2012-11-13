@@ -8,9 +8,6 @@
 #define MAJORR 59
 #define COUNT 2
 #define chrdev_name "mychrdev"
-#define IO_PRINT1 1
-#define IO_PRINT_STRING 6
-
 
 #define MY_IOC_MAGIC 'k'
 #define MY_IOC_PRINT1 _IO(MY_IOC_MAGIC,0)
