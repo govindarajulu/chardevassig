@@ -40,6 +40,7 @@ int fops_myioctl (struct inode *myinode, struct file *filep, unsigned int mycmd,
         printk("cmd 1 received\n");
         break;
     case IO_PRINT_STRING:
+        printk("in cmd2");
         copy_from_user(&cmd2,(struct ioctl_cmd2*)myarg,sizeof(struct ioctl_cmd2));
         string=kmalloc(cmd2.len,GFP_KERNEL);
         copy_from_user(string,cmd2.string,cmd2.len);
