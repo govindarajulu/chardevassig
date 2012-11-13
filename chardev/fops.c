@@ -42,7 +42,7 @@ int fops_myioctl (struct inode *myinode, struct file *filep, unsigned int mycmd,
     case IO_PRINT_STRING:
         copy_from_user(&cmd2,(struct ioctl_cmd2*)myarg,sizeof(struct ioctl_cmd2));
         string=kmalloc(cmd2.len,GFP_KERNEL);
-        copy_from_user(string,cmd2.string);
+        copy_from_user(string,cmd2.string,cmd2.len);
         printk("cmd2:%s",string);
         kfree(string);
         break;
