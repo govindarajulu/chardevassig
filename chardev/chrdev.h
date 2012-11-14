@@ -14,8 +14,8 @@
 #define MY_IOC_PRINT_STRING _IOWR(MY_IOC_MAGIC,1,char)
 
 struct ioctl_cmd2 {
-    ssize_t len;
-    char * string;
+        ssize_t len;
+        char * string;
 }__attribute__((__packed__));
 
 int fops_myopen(struct inode *myinode, struct file *myfile);
