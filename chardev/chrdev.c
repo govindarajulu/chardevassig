@@ -7,11 +7,11 @@
 
 dev_t chrdev;
 struct cdev *mycdev;
-struct file_operations fop= {
-        .owner = THIS_MODULE,
-        .open  = fops_myopen,
-        .release = fops_myrelease,
-        .read = fops_myread,
-        .ioctl = fops_myioctl,
-        .write = fops_mywrite
+const struct file_operations fop = {
+	.owner = THIS_MODULE,
+	.open  = fops_myopen,
+	.release = fops_myrelease,
+	.read = fops_myread,
+	.ioctl = fops_myioctl,
+	.write = fops_mywrite
 };
